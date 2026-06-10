@@ -75,11 +75,7 @@ const handleLogin = async(e)=>{
                 },2500)
             }
             toast.success('login successfull!')
-            setIsAuthenticated(true)
-
-
-           
-            
+            setIsAuthenticated(true)   
         }
         else
         {

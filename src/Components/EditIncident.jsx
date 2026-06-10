@@ -52,32 +52,30 @@ function EditIncident({reports}) {
         },[reportDetails.reportImage])
         console.log(preview);
 
-        const handleUpdate =async(e)=>{
-            e.preventDefault();
-            const {id,title,
+  const handleUpdate =async(e)=>{
+   e.preventDefault();
+      const {id,title,
             date,
             location,
             overview,
             reportImage}= reportDetails
     
-            if(!title || !location || !overview){
+      if(!title || !location || !overview){
                 toast.info("Please fill out all fields.")
             }
-            else
+      else
             {
                 
-    const reqBody = new FormData()
+        const reqBody = new FormData()
 
-    reqBody.append("title",title)
-    reqBody.append("date",date)
-    reqBody.append("location",location)
-    reqBody.append("overview",overview)
-    preview?reqBody.append("reportImage",reportImage):reqBody.append("reportImage",reports.reportImage) 
+          reqBody.append("title",title)
+          reqBody.append("date",date)
+          reqBody.append("location",location)
+          reqBody.append("overview",overview)
+          preview?reqBody.append("reportImage",reportImage):reqBody.append("reportImage",reports.reportImage) 
     
-    
-    const token = sessionStorage.getItem("token")
+          const token = sessionStorage.getItem("token")
 
-    
                 if(preview)
                 {
                     const reqHeader = {
@@ -118,9 +116,7 @@ function EditIncident({reports}) {
                         console.log(result.response.data);
                       }
                 }
-            }
-    
-           
+            } 
         }
 
   return (

@@ -9,7 +9,7 @@ import addimage from '../Assests/addimage.svg'
 
 function AddIncident() {
   const {addReportResponse, setAddReportResponse} = useContext(addReportResponseContext)
-  const [reportDetails, setreportDetails]=useState({
+ /*  const [reportDetails, setreportDetails]=useState({
     title:"",
     date: new Intl.DateTimeFormat('en-GB', {
       year: 'numeric',
@@ -21,6 +21,22 @@ function AddIncident() {
     location:"",
     overview:"",
     reportImage:""
+}) */
+const getCurrentDate = () => {
+  return new Intl.DateTimeFormat('en-GB', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(new Date())
+}
+const [reportDetails, setreportDetails] = useState({
+  title: "",
+  date: getCurrentDate(),
+  location: "",
+  overview: "",
+  reportImage: ""
 })
 const [token,seToken] = useState("")
 const [ preview, setPreview]=useState("")
@@ -52,7 +68,7 @@ useEffect(()=>{
 const handleClosed =()=>{
     setreportDetails({
         title:"",
-        date:"",
+        date:getCurrentDate(),
         location:"",
         overview:"",
         reportImage:""
@@ -106,10 +122,7 @@ const handleAdd = async (e)=>{
         toast.error('Failed to Add Report',result.response.data)
         handleClosed()
       } 
-
-    }
-    
-      
+    }   
   }
 }
 

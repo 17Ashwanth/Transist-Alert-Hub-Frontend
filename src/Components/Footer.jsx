@@ -58,11 +58,9 @@ function Footer() {
       </Col>
     
   </Row>
-   <div className='text-center text-white fw-semibold '> <p className='mt-5'>Copyright 2024 Transist Alerts Hub </p></div>
+   <div className='text-center text-white fw-semibold '> <p className='mt-5'>Copyright 2026 Transist Alerts Hub </p></div>
   </div>
   )
 }
 
 export default Footer
-
-// Visruth

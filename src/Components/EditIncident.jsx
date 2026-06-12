@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { editReportsAPI } from '../service/allAPI';
 import { editReportResponseContext } from '../Context/ContextShare';
-import { BASE_URL } from '../service/serverURL';
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -131,9 +130,9 @@ function EditIncident({reports}) {
         <div className="row">
             <div className="col-lg-6">
                 <label htmlFor='upload'>
-                    <input id='upload' onChange={(e)=>setreportDetails({...reportDetails,reportImage:e.target.files[0]})}  type="file" style={{display:'none'}} />
-                    <img width={'100%'} height={'100%'} className='img-fluid' src={preview?preview:`${BASE_URL}/uploads/${reports.reportImage}`} alt="" />
-                </label>
+    <input id='upload' onChange={(e)=>setreportDetails({...reportDetails,reportImage:e.target.files[0]})}  type="file" style={{display:'none'}} />
+    <img width={'100%'} height={'100%'} className='img-fluid' src={preview?preview:reports.reportImage} alt="" />
+</label>
             
             </div>
             <div className="col-lg-6">

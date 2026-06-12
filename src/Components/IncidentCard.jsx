@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { Col, Row } from 'react-bootstrap';
 import { useState } from 'react';
-import { BASE_URL } from '../service/serverURL';
 
 function IncidentCard({reports}) {
 
@@ -17,7 +16,7 @@ function IncidentCard({reports}) {
     <>
   
       <Card style={{width:'100%'}} className='d-flex justify-content-center align-items-center mt-4 shadow rounded btn bg-dark'onClick={handleShow}>
-        <Card.Img  variant="top" style={{paddingTop:'10px'}} src={reports?`${BASE_URL}/uploads/${reports.reportImage}`:reportImage} />
+        <Card.Img  variant="top" style={{paddingTop:'10px'}} src={reports?reports.reportImage:reportImage} />
         <Card.Body>
           <Card.Title style={{color:'yellow'}}>{reports.title}</Card.Title>
           <Card.Text style={{color:'white'}}>
@@ -39,8 +38,7 @@ function IncidentCard({reports}) {
             <Col md={6}>
             <h5>{reports.location}</h5>
             <h5>{reports.date}</h5>
-            <img src={reports?`${BASE_URL}/uploads/${reports.reportImage
-}`:reportImage} style={{width:'100%'}} alt="" />
+            <img src={reports?reports.reportImage:reportImage} style={{width:'100%'}} alt="" />
             </Col>
             <Col md={6}>
             <h1>{reports.title}</h1>
